@@ -1,0 +1,310 @@
+
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+  <title>GLS Map Edit</title>
+
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <!-- Openlayers Library Style -->
+  <link rel="stylesheet" href="assets/css/ol.css" />
+  <!-- Openlayers-ext Library Styles -->
+  <link rel="stylesheet" href="assets/css/ol-ext.min.css" />
+  <!-- Bootstrap CSS CDN -->
+  <link rel="stylesheet" href="assets/bootstrap-3.3.7-dist/css/bootstrap.min.css" />
+  <!-- Font-awesome Library Styles -->
+  <link rel="stylesheet" href="assets/css/font-awesome/css/font-awesome.css">
+  <!-- jQuery Custom Scrollbar Styles -->
+  <link rel="stylesheet" href="assets/css/jquery.mCustomScrollbar.min.css" />
+  <!-- Main CSS -->
+  <link rel="stylesheet" href="assets/css/main.css" />
+</head>
+
+<body>
+  <div class="app-wrapper">
+    <input id="txtfnam" name="txtfnam" type="hidden" value= "[4]" />
+    <input id="txtblink" name="txtblink" type="hidden" value="" />
+    <textarea id="txtgeojson" name="txtgeojson" hidden>
+       {"type":"FeatureCollection","features":[{"type":"Feature","properties":{"id":"Cable-7","text":"modtest-Cable 1-Section 2-SUBZONE_1","calibration":[{"offset":0,"coordinates":[2357.911806951311,402.4950285149527]},{"offset":961,"coordinates":[1506.9023983370264,619.2722226367691]}]},"geometry":{"type":"LineString","coordinates":[[2357.911806951311,402.4950285149527],[2357.911806951311,218.87020717343825],[2263.2122135550585,217.13789753814092],[2262.0573404648603,225.22200916952835],[2342.8984567787347,226.95431880482568],[2346.9405125944286,798.1019510365114],[2221.636782307923,795.792204856115],[2220.509605518497,1271.867660425595],[2319.828691275543,1271.290223880496],[2320.7831863739093,2474.3317283453557],[1964.1744916554208,2472.4782764912],[1965.6296200525157,2583.068034670426],[1935.5569665125508,2582.0979490723626],[1935.25440907807,2795.673869270196],[1758.2347557577575,2794.703898567071],[1757.749770406195,2826.2279464186336],[1718.4659569296325,2825.2579757155086],[1718.4659569296325,2795.1888839186336],[1663.66261220307,2794.703898567071],[1665.1175682577575,2901.400675910821],[1675.7872459921325,2901.8856612623836],[1674.8172752890075,2811.193400520196],[1705.371352437445,2810.7084151686336],[1704.8863670858825,2842.232463020196],[1773.269301656195,2841.7474776686336],[1774.23927235932,2812.163371223321],[2122.9437401327577,2812.163371223321],[2123.4191027546276,2499.8231820873793],[2141.8485461140026,2499.338196735817],[2143.30350216869,2797.6041879467543],[2310.13846310619,2798.089173298317],[2310.6661441629903,3402.941111431984],[2289.811774045803,3402.941111431984],[2290.781744748928,3195.8523663147967],[2018.7049625223653,3195.8523663147967],[2018.7049625223653,3274.4199932679217],[2089.997809202053,3274.4199932679217],[2090.4827945536153,3291.394480572609],[2018.7049625223653,3290.424509869484],[2018.7049625223653,3339.893015728859],[2004.6403873270528,3337.4680889710467],[2004.1554019754903,3316.1287335022967],[1944.0172183817403,3317.583689556984],[1943.5322330301778,3299.6392315491717],[2003.6704166239278,3300.6092022522967],[2004.6403873270528,3195.367380963234],[1846.0501773661156,3195.852366314796],[1847.0201480692406,3338.9230450257337],[1836.835455686428,3338.9230450257337],[1837.3204410379906,3196.822337017921],[1625.8668277567406,3195.3673809632337],[1624.1416604367816,3066.8019130559883],[1612.9869973508441,3067.286898407551],[1614.4419534055319,3290.425913461354],[1729.3834817258444,3290.425913461354],[1728.8984963742819,3302.065561898854],[1625.5966164914694,3301.5805765472915],[1624.6266457883444,3386.453013070729],[1607.1671731320944,3387.9079691254165],[1607.6521584836569,3301.5805765472915],[1172.7282596708103,3300.824520465582],[1172.7282596708103,3351.7479823796443],[1007.3482547879978,3351.747982379645],[1005.8932987333103,3336.7134364812073],[1153.8138309598728,3336.228451129645],[1152.8438602567478,3195.0977138249573],[1014.6230350614353,3193.64275777027],[1014.1380497098728,3218.86199605152],[1005.8932987333103,3218.86199605152],[1005.4083133817478,3180.5481532780823],[1569.4462772489353,3182.00310933277],[1569.9312626004978,3057.84685933277],[1507.8531376004978,3055.4219325749573],[1506.9875328587275,2963.188692059107],[1321.23814321029,2964.158662762232],[1320.7571981661563,3243.148037357954],[1305.7226522677188,3242.178066654829],[1306.2076376192813,2963.796474857954],[1211.1505087130313,2964.2814602095164],[1210.1805380099063,3044.304043217329],[989.0665092109705,3046.428548800949],[989.551494562533,3030.4240321993866],[1196.155254328158,3027.999105441574],[1197.6102103828455,2953.311361300949],[1506.0608939765955,2952.8263759493866],[1507.515850031283,2928.5771083712616],[1400.3340873359705,2927.6071376681366],[1371.2349662422207,2768.3461068470942],[1101.5831107734707,2815.8746713002192],[1099.6431693672207,2805.6899789174067],[1353.2905082344082,2759.1313851674067],[1321.5371588659475,2578.0553121532275],[1251.6992682409475,2592.6048727001025],[1264.793872733135,2647.408217426665],[1051.8853033971975,2685.7220602001025],[1061.100025076885,2728.885756489165],[901.0548590612599,2758.95484828604],[897.6599616003224,2743.9203023876025],[1037.8207282018848,2718.7010641063525],[1008.7216071081349,2547.0162496532275],[1019.3342146357153,2541.538846675246],[1111.4814314325904,2525.5343300736836],[1081.4123396357154,2354.334500972121],[1069.287705846653,2357.7293984330586],[1084.807237096653,2451.8165566361836],[997.0248884638403,2468.3060585893086],[1000.9047712763403,2505.649930659621],[993.1450056513403,2505.1649453080586],[939.3116316279028,2465.3961464799336],[942.7065290888403,2457.151395503371],[1014.9693464716528,2445.0267617143086],[1013.5143904169653,2426.5973183549336],[884.9932722529028,2416.412625972121],[887.9031843622778,2400.893094722121],[1008.6645369013403,2414.472684565871],[1008.6645369013403,2403.803006831496],[945.6164411982155,2042.973905268996],[834.0698103388405,2061.8883339799336],[833.584824987278,2048.793729487746],[902.452744909153,2036.6690956986836],[897.1179060419655,2004.9585150195971],[764.2319197138405,2027.2678411914721],[770.0517439325905,2060.7318304492846],[760.837022252903,2063.156757207097],[751.6223005732155,2018.0531195117846],[894.692979284153,1991.3789251758471],[852.984239049778,1751.7961615039721],[795.755967565403,1765.3757513477221],[805.9212395346532,1822.5846024185348],[776.3371330893407,1829.8593826919723],[776.3371330893407,1818.7047196060348],[794.7665764487157,1815.7948074966598],[784.0968987143407,1752.2617264419723],[851.0248772299657,1742.0770340591598],[842.2951409018407,1694.5484696060348],[686.6148430502782,1723.1626053482223],[697.7695061362157,1787.1806717544723],[690.0097405112157,1787.1806717544723],[675.9451653159032,1715.4028397232223],[841.8101555502782,1684.3637772232223],[799.5499415503834,1457.5839645608476],[720.9823145972584,1469.70859834991],[719.5273585425709,1460.00889131866],[797.1250147925709,1446.42930147491],[773.3607325660084,1296.5688278420976],[913.5214991675709,1271.3495895608476],[911.0965724097584,1258.7399704202226],[781.1204981910084,1280.564311240535],[745.2315821753833,1077.8404342874098],[712.7375636206958,1083.6602585061598],[718.5573878394458,1118.0942184670973],[709.3426661597583,1120.0341598733473],[701.0979151831958,1074.9305221780348],[718.0724024878833,1072.0206100686598],[706.9177394019458,1003.1526901467848],[698.6729884253833,1002.6677047952223],[698.1880030738208,991.0280563577223],[827.1941065894458,970.1736862405348],[826.7091212378833,979.8733932717848],[712.7375636206958,1000.2427780374098],[729.2270655738208,1070.5656540139723],[911.5815577613208,1038.0716354592848],[922.7362208472583,953.1991989358473],[871.8127589331958,916.8252975686598],[877.1475978003833,907.6105758889723],[930.4959864722583,943.0145065530348],[940.6806788550708,1004.1226608499098],[969.7797999488208,1024.0070602639723],[1079.3864894019457,1005.5776169045973],[1061.9270167456957,912.9454147561598],[1214.6974024878832,885.7862350686598],[1182.2033839331957,698.0969040139723],[1036.7077784644457,691.3071090920973],[1035.2528224097582,675.7875778420973],[1050.7723536597582,672.8776657327223],[1048.8324122535082,657.3581344827223],[1099.2708888160082,648.6283981545973],[1089.0861964331957,592.3700973733473],[1102.6657862769457,593.8250534280348],[1115.7603907691332,676.7575485452223],[1189.9631495581957,682.5773727639723],[1228.2769923316337,895.742699050737],[1077.4465479956962,921.931908035112],[1147.1195698964716,1303.0568886509207],[1261.5761128652216,1281.2325478306082],[1269.3358784902216,1305.9668007602957],[1373.1227437245966,1287.0523720493582],[1379.9125386464716,1321.4863320102957],[1370.2128316152216,1323.9112587681082],[1364.3930073964716,1301.1169472446707],[1260.121156810534,1318.0914345493582],[1255.271303294909,1296.2670937290457],[1177.1886616933466,1308.8767128696707],[1409.4861297282378,2625.0242331515597],[1440.5251922282378,2620.659364987497],[1437.6152801188628,2606.5947897921847],[1449.2549285563628,2588.650331784372],[1445.8600310954253,2555.671327878122],[1663.1334685954253,2514.4475729953097],[1666.5283660563628,2526.0872214328097],[1498.7234344157378,2557.611269284372],[1507.4531707438628,2607.079775143747],[1706.7821502360503,2571.6758444796847],[1691.2626189860503,2486.3184226046847],[1816.8738250407378,2483.4085104953097],[1816.8738250407378,2472.7388327609347],[1709.2070769938628,2474.6787741671847],[1699.0223846110503,2461.0991843234347],[1604.974360108272,1925.2141235998156],[2202.961298584835,1925.214123599816],[2201.021357178585,1916.9693726232535],[2063.7705026863973,1915.0294312170035],[2063.770502686397,1667.6869019201283],[1858.136713623897,1666.7169312170033],[1857.6517282723346,1656.5322388341908],[2022.5467478035848,1655.5622681310658],[2063.7705026863973,1614.8234985998158],[2063.285517334835,1508.6117066076283],[2120.0288034676473,1456.2332886388783],[2119.543818116085,1432.4690064123158],[2125.8486276863973,1431.9840210607533],[2153.49279272546,1462.5380982091908],[2165.13244116296,1465.4480103185658],[2165.13244116296,1454.7783325841908],[2157.8576608895223,1451.8684204748158],[2118.0888620613973,1406.2797974279408],[2119.543818116085,1308.7977417638783],[2198.5964304207723,1308.7977417638783],[2199.5664011238973,1369.9058960607533],[2212.661005616085,1369.4209107091908],[2212.1760202645223,1294.7331665685658],[1549.6860300301473,1293.7631958654408],[1550.066094626089,1655.2932721231941],[1850.2720272432764,1655.2932721231941],[1850.2720272432764,1667.9028912638191],[1550.066094626089,1667.9028912638191],[1550.0660946260891,1716.1809785329956],[1536.9714901339016,1715.2110078298706],[1535.0315487276516,1695.326608415808],[1485.5630428682766,1696.7815644704956],[1486.0480282198391,1681.747018572058],[1537.9414608370266,1681.747018572058],[1536.486504782339,1312.3162900195819],[1521.4519588839014,1308.4364072070819],[1519.027032126089,1043.1494199023944],[1504.477471579214,964.5817929492694],[1704.7764217745264,928.6928769336444],[1702.8364803682764,917.5382138477069],[1501.567559469839,952.4571591602069],[1476.8333065401514,972.8265439258319],[1166.927666891714,1026.1749325977069],[1164.987725485464,1012.1103574023944],[1490.4128963839014,954.3971005664569],[1469.0735409151514,821.0261288867692],[1540.366387594839,806.9615536914567],[1506.9023983370264,619.2722226367691]]}}],"image":"Dubai Mall LEAK DETECTION SYSTEM LAYOUT.png","File Name":"[4]","All Cable Id":"Cable-7","All Zone Id":""}
+    </textarea>
+    <!-- Sidebar Holder -->
+    <nav id="sidebar" class="app-sidebar">
+      <div class="app-sidebar-header">
+        <a href="pendingmap.html">
+          <img src="./assets/images/logo/perm-alert-logo.png" alt="logo image" width="100%" />
+        </a>
+        <h3 class="logo-text">GLS Editor</h3>
+      </div>
+      <ul class="list-unstyled app-sidebar-components">
+        <li>
+            <!--
+          <a href="#" id="upload-img" onclick="document.getElementById('fileInput').click();">
+            <input id="fileInput" name="input_file" type="file" style="display: none" />
+            <i class="fa fa-upload"></i> Import Image-->
+          </a>
+        </li>
+        <li class="">
+          <a href="#" id="none-click">
+            <i class="fa fa-mouse-pointer"></i>
+            Pointer
+          </a>
+        </li>
+        <li>
+          <a href="#" id="translateFeature">
+            <i class="fa fa-arrows" aria-hidden="true"></i>
+            Move </a>
+        </li>
+        <li>
+          <a href="#" id="calibration-click">
+            <i class="fa fa-map-marker" aria-hidden="true"></i>
+            Select Calibration </a>
+        </li>
+        <li>
+          <a href="#rotation" data-toggle="collapse" aria-expanded="false">
+            <i class="fa fa-undo"></i> Map Rotate</a>
+          <ul class="collapse list-unstyled" id="rotation">
+            <li>
+              <a href="#" id="rotate-left">
+                <i class="fa fa-undo"></i>
+                Rotate Left
+              </a>
+            </li>
+            <li>
+              <a href="#" id="rotate-right">
+                <i class="fa fa-repeat" aria-hidden="true"></i>
+                Rotate Right
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a href="#LockUnlock" data-toggle="collapse" aria-expanded="false">
+            <i class="fa fa-lock"></i> Image Lock</a>
+          <ul class="collapse list-unstyled" id="LockUnlock">
+            <li>
+              <a id="lock">
+                <i class="fa fa-lock"></i>
+                lock screen
+              </a>
+            </li>
+            <li>
+              <a id="unlock">
+                <i class="fa fa-unlock"></i>
+                unlock screen
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a href="#drawPolygons" data-toggle="collapse" aria-expanded="false">
+            | Line
+          </a>
+          <ul class="collapse list-unstyled" id="drawPolygons">
+            <li>
+              <a href="#" id="line-click"> | Line </a>
+            </li>
+            <li>
+              <a href="#" id="dotted-click"> | Hash Line </a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a href="#" id="rectangle-click">
+            <i class="fa fa-square-o" aria-hidden="true"></i>
+            Rectangle
+          </a>
+        </li>
+        <li>
+          <a href="#" id="star-click">
+            <i class="fa fa-star" aria-hidden="true"></i>
+            Star
+          </a>
+        </li>
+        <li>
+          <a href="#" id="circle-click">
+            <i class="fa fa-circle"></i>
+            Circle
+          </a>
+        </li>
+        <li>
+          <a href="#" id="polygon-click">
+            <i class="fa fa-square-o" aria-hidden="true"></i>
+            Polygon
+          </a>
+        </li>
+        <li>
+          <a href="#" id="scaling">
+            <i class="fa fa-search-plus" aria-hidden="true"></i>
+            Scaling </a>
+        </li>
+        <p class="copyright">Â© 2021 PermAlert</p>
+      </ul>
+    </nav>
+    <!-- End of Sidebar -->
+    <!-- Modal Holder -->
+    <div class="modal fade" id="scaleModel" role="dialog">
+      <div class="modal-dialog">
+        <!-- Modal Content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+          </div>
+          <div class="modal-body">
+            <div class="row">
+              <div class="col-sm-6">
+                <input class='form-control input' class="form-control" type="number" placeholder="DISTANCE" value=""
+                  id="distance" />
+              </div>
+              <div class="col-sm-6">
+                <select class="form-control" name="distUnit" id="distUnit">
+                  <option value="0">Feet</option>
+                  <option value="1">Meter</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer" style="text-align: center;">
+            <button type="button" class="btn btn-default" data-dismiss="modal" id="displayScaling">OK</button>
+            <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+          </div>
+        </div>
+        <!-- End of Modal Content -->
+      </div>
+    </div>
+    <!-- End of Modal -->
+    <!-- Page Content Holder -->
+    <div id="content">
+      <nav class="navbar" id="side-nav-button">
+        <div class="navbar-wrapper">
+          <div class="navbar-header">
+            <button type="button" id="sidebarCollapse" class="btn btn-info navbar-btn">
+              <i class="glyphicon glyphicon-align-left"></i>
+            </button>
+            <div style="flex-grow: 1;"></div>
+            <input type="color" name="zoneColor" id="zoneColor">
+            <button id="btnChangeColor" class="btn btn-primary">Change Color</button>
+          </div>
+          <div class="app-controller" id="controller">
+            <div class="app-controller-assigner">
+              <div class="app-controller-items">
+                <div class="app-controller-item-layout">
+                  <input type="hidden" name="input_file" id="input_file"/>
+                  <select id="zone_list" class="form-control app-optional" aria-placeholder="Select Zone">
+                    <option value="0">Select Zone</option>
+                     
+               
+
+  <option value="Zone-4">SUBZONE_1</option>
+  
+
+
+</select>
+                </div>
+                <button class="btn btn-primary" id="btn_add_zone">Assign Zone</button>
+              </div>
+              <div class="app-controller-items">
+                <div class="app-controller-item-layout">
+                  <select id="cable_list" class="form-control app-optional">
+                    <option value="0#0">Select Cable</option>
+                      
+               
+
+  <option value="Cable-1/0-17">modtest-Cable 1-Section 1-Zone</option>
+  
+
+ 
+               
+
+  <option value="Cable-7/18-978">modtest-Cable 1-Section 2-Zone</option>
+  
+
+ 
+               
+
+  <option value="Cable-8/979-987">modtest-Cable 1-Section 3-Zone</option>
+  
+
+
+</select>
+                </div>
+                <button class="btn btn-primary" id="btn_add_cable">Assign Cable</button>
+              </div>
+            </div>
+            <div class="app-controller-button-group">
+              <div class="app-controller-save">
+                <button id="btnSave" class="btn btn-primary">Save</button>
+                <button class="btn btn-default">Cancel</button>
+              </div>
+              <button class="btn btn-danger" id="btnDelete">Delete</button>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <div class="map-container">
+        <div id="map" class="map"></div>
+      </div>
+    </div>
+    <!-- End of Page Content -->
+    <!-- Tooltip Popup for Cable -->
+    <div id="tooltip" class="ol-tooltip">
+      <div id="tooltip-content"></div>
+    </div>
+    <!-- End of Tooltip Popup for Cable -->
+    <!-- Alert -->
+    <div id="alert" class="ol-alert">
+    </div>
+    <!-- End of Alert -->
+    <!-- Popup for Cable Calibration -->
+    <div id="popup" class="ol-popup">
+      <a href="#" id="popup-closer" class="ol-popup-closer"></a>
+      <div id="popup-content">
+        <div class="ol-popup-input">
+          <span>Please input calibration value</span>
+          <input class="form-control input" type="number" name="calibration" id="calibrationInfo">
+        </div>
+        <div class="ol-popup-buttons">
+          <button class="btn btn-primary" onclick="onCalibrationSave()">Save</button>
+          <button class="btn btn-danger" onclick="onCalibrationDelete()">Delete</button>
+        </div>
+      </div>
+    </div>
+    <!-- End of Popup for Cable Calibration -->
+  </div>
+
+  <!-- Polyfill JS Library -->
+  <script src="assets/js/polyfill.min.js"></script>
+  <!-- Turf JS Library -->
+  <script src="assets/js/turf.min.js"></script>
+  <!-- Openlayers & Openlayers-ext Library -->
+  <script src="assets/js/ol.js"></script>
+  <script src="assets/js/ol-ext.js"></script>
+  <!-- jQuery CDN -->
+  <script src="assets/js/jquery-1.12.0.min.js"></script>
+  <!-- Bootstrap Js CDN -->
+  <script src="assets/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+  <!-- jQuery Custom Scroller CDN -->
+  <script src="assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
+  <!-- Main JS -->
+  <script src="assets/js/main-edit.js"></script>
+
+  <script type="text/javascript">
+    $(document).ready(function () {
+      $("#sidebar").mCustomScrollbar({
+        theme: "minimal",
+      });
+
+      $("#sidebarCollapse").on("click", function () {
+        $("#sidebar, #content").toggleClass("active");
+        $(".collapse.in").toggleClass("in");
+        $("a[aria-expanded=true]").attr("aria-expanded", "false");
+      });
+    });
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,348 @@
+
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+  <title>GLS Map Blink</title>
+
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <!-- Openlayers Library Style -->
+  <link rel="stylesheet" href="assets/css/ol.css" />
+  <!-- Openlayers-ext Library Styles -->
+  <link rel="stylesheet" href="assets/css/ol-ext.min.css" />
+  <!-- Bootstrap CSS CDN -->
+  <link rel="stylesheet" href="assets/bootstrap-3.3.7-dist/css/bootstrap.min.css" />
+  <!-- Font-awesome Library Styles -->
+  <link rel="stylesheet" href="assets/css/font-awesome/css/font-awesome.css">
+  <!-- jQuery Custom Scrollbar Styles -->
+  <link rel="stylesheet" href="assets/css/jquery.mCustomScrollbar.min.css" />
+  <!-- Main CSS -->
+  <link rel="stylesheet" href="assets/css/mainblink.css" />
+</head>
+
+<body>
+  <div class="app-wrapper">
+    <input id="txtfnam" name="txtfnam" type="hidden" value="abc.json" />
+    <input id="txtblink" name="txtblink" type="hidden" value="Zone-94/Cable-7/100$Zone-94/Cable-7/1093$Zone-94/Cable-8/1" />
+    <input id="zoneblink" name="zoneblink" type="hidden" value="Zone-91$Zone-94" />
+    <textarea id="txtgeojson" name="txtgeojson" hidden>
+       {"type":"FeatureCollection","features":[{"type":"Feature","properties":{"id":"Cable-7","text":"at30k-Cable 4-Section 1-Cable4","calibration":[{"offset":0,"coordinates":[116.21838879412455,303.1310162456605]},{"offset":1638,"coordinates":[263.8571168632029,402.8277496518698]}]},"geometry":{"type":"LineString","coordinates":[[116.21838879412455,303.1310162456605],[193.24781412465012,305.64284533252544],[314.65288665645676,286.38548899989405],[335.7663039150924,404.19078669596394],[331.6559523525924,405.21837458658894],[316.49903096587366,338.1682647233077],[309.5628127041549,339.45274958658894],[320.8662795010299,405.73216853190144],[325.74732198149866,404.9614776139327],[320.8662795010299,370.79418025065144],[335.7663039150924,367.4545196061202],[338.8490675869674,362.57347712565144],[345.0145949307174,392.6304229264327],[418.20186751624635,376.5954994599955],[632.7002531427229,306.17436694898817],[635.0123258966291,309.0002336482069],[634.7554289239729,370.6555070857069],[630.9019743341291,370.6555070857069],[630.1312834161604,354.47099780836317],[626.5347257989729,357.2968645075819],[565.9070402520979,356.7830705622695],[401.8560533119566,397.68823974378677],[151.30958666954206,445.53100857665817],[153.1078654781358,455.29309353759567],[327.259665627342,424.59416731288434],[327.1398298010679,551.6242992475701],[580.4442660462691,551.7705381186586],[580.1873690736129,562.5602109702211],[328.31490084360087,560.505035188971],[329.6487277638514,645.2195183000489],[570.4591359707357,646.5141979140644],[571.4730836255198,655.4536041012121],[579.4368897778636,655.4536041012121],[579.4368897778636,659.5639556637121],[509.3040162427074,658.0225738277746],[509.4261074326863,723.3518164956826],[523.5554409287801,735.16907723787],[575.1917324326863,736.4535621011513],[576.2193203233113,740.8208106363076],[515.3347378037801,740.8208106363076],[504.8019619248738,728.7466529214638],[471.5005938196095,763.1988136963738],[524.6782671594533,762.428122778405],[528.7886187219533,760.1160500244988],[527.9246045874668,865.5530109486061],[495.298689060123,867.0943927845436],[493.243513278873,871.2047443470436],[597.2867872046543,869.4064655384498],[597.5436841773105,627.9060276532003],[602.6816236304355,627.9060276532003],[602.2989563747681,1159.5425334080066],[594.5507844065705,1160.3581304572906],[594.1429858819286,1130.5888381584261],[596.9975755544224,1122.8406661902286],[504.8833132811441,1123.3189580605774],[502.84432065793425,1026.262909195787],[611.3187282127001,1025.447312146503],[612.542123786626,1057.2555970685771],[388.2529352335387,1059.2945896917872],[384.17494998711896,1050.3230221496635],[378.0579721174893,1051.9542162482314],[376.8345765435634,1131.474928553417],[371.94099424785963,1131.067130028775],[372.3487927725016,1052.3620147728734],[313.6609426023497,1053.171755592442],[307.95176325736196,1062.1433231345654],[309.5829573559299,1130.6534752744176],[301.8347853877323,1131.8768708483435],[302.2425839123743,1053.987352641726],[216.1970952129172,1052.7639570678],[215.78929668827521,1076.4162714970348],[493.5000919694614,1076.0084729723926],[493.0922934448194,1118.8273180598],[497.98587574052317,1122.4975047815778],[470.2555760648687,1122.9053033062198],[470.2555760648687,1167.3553424921954],[463.7307996705971,1167.7631410168374],[464.13859819523907,1123.7209003555038],[363.4123626086708,1123.3131018308618],[363.0045640840288,1158.791573474714],[356.8875862143991,1159.199371999356],[356.8875862143991,1124.9442959294297],[323.04030866911506,1124.5364974047877],[324.263704243041,1089.4658242855778],[317.33112932412735,1089.4658242855778],[317.7389278487693,1123.7209003555038],[210.4879158679295,1124.536497404788],[211.30351291721345,1160.830566097924],[201.92414685044798,1159.607170523998],[201.10854980116403,1046.2391806735284],[285.9306429266952,1047.8703747720963],[278.1824709584977,1001.789141487553],[284.2994488281273,997.3033577164912],[316.10773375020153,992.4097754207875],[307.5439647327199,934.5023849216271],[229.5904652435368,949.4788733005075],[244.23359268494306,1022.4376135348825],[224.70942276306806,1026.8048620700388],[205.3864190478641,919.4219274997262],[236.7278497119266,911.4581213473824],[230.0485284228641,878.0615149020699],[216.1760918994266,880.3735876559762],[220.54334043458286,907.6046667575387],[197.6795098681766,911.2012243747262],[207.69849180177036,955.1306066989449],[195.6243340869266,956.6719885348824],[195.1105401416141,962.8375158786324],[208.21228574708286,960.5254431247262],[214.37781309083286,953.3323278903512],[241.60889219239536,971.0582190036324],[336.2382221436176,954.0749437271746],[329.0451069092426,910.9162523209246],[333.1554584717426,910.1455614029559],[342.1468525147113,953.8180467545184],[389.1589985108051,943.7990648209247],[381.1951923584613,902.1817552506122],[404.0590229248676,898.0714036881122],[406.1141987061176,901.924858277956],[385.8193378662738,908.090385621706],[394.2969379639301,943.2852708756122],[415.6193866943988,938.9180223404561],[488.0643329834613,937.6335374771749],[488.5781269287738,920.1645433365499],[281.1369802096227,923.4010240319158],[261.6128102877477,819.8715440514469],[275.22834983852897,802.1456529381657],[330.5235954813602,792.289973194622],[323.3304802469852,760.6916455579033],[307.4028679422977,763.0037183118095],[260.5042620629701,489.5123759574449],[379.7044573754701,469.2175151176011],[378.6768694848451,463.8226786918199],[135.7475972007486,503.94420690602783],[172.90587397861353,730.3816919977932],[156.3987088999158,735.5604104538552],[165.78513610152822,792.5263134705376],[251.55766053005564,769.2220804182584],[217.24865075864466,575.0201383159322],[220.4853497936834,567.2520606318391],[279.06960232788515,558.5129732372344],[278.7459324243813,553.3342547811724],[236.99251487238115,560.4549926582577],[216.60131095163683,454.29126430898623],[166.4324759085359,433.5763904847381],[168.37449532955918,428.3976720286761],[220.1616798901795,450.4072254669397],[222.7510391182105,457.527963344025],[255.4416993721021,410.5958273359628],[255.4416993721021,400.88573023084655],[262.2387673456835,397.9727010993116],[270.9778547402882,399.26738071332716],[266.7701459947378,409.94848752895507],[260.2967479246602,407.35912830092406],[263.8571168632029,402.8277496518698]]}},{"type":"Feature","properties":{"id":"Cable-8","text":"at30k-Cable 4-Section 2-Cable4","calibration":[{"offset":1639,"coordinates":[126.93682960245545,284.60527373681026]},{"offset":1679,"coordinates":[126.93682960245545,284.60527373681026]}]},"geometry":{"type":"Circle","coordinates":[[126.93682960245545,284.60527373681026],0]}},{"type":"Feature","properties":{"id":"Zone-94","text":"Cable4","color":"#000000"},"geometry":{"type":"Polygon","coordinates":[[[0.3181549680001581,210.3461967407893],[747.8565029545018,210.3461967407893],[747.8565029545018,1282.8088834827875],[0.3181549680001581,1282.8088834827875],[0.3181549680001581,210.3461967407893]]]}}],"File Name":"[94]","All Cable Id":"Cable-7,Cable-8","All Zone Id":"Zone-94"}
+    </textarea>
+    <textarea id="blinkColors" name="blinkColors" hidden>
+               Zone-94/Cable-7/100-ff0000,Zone-94/Cable-7/1093-ff0000,Zone-94/Cable-8/1-ff0000,
+    </textarea>
+    <!-- Sidebar Holder -->
+    <nav id="sidebar" class="app-sidebar" hidden>
+      <div class="app-sidebar-header">
+        <a href="gls.html">
+          <img src="./assets/images/logo/perm-alert-logo.png" alt="logo image" width="100%" />
+        </a>
+        <h3 class="logo-text">GLS Editor</h3>
+      </div>
+      <ul class="list-unstyled app-sidebar-components" hidden>
+        <li>
+          <a href="#" id="upload-img" onclick="document.getElementById('fileInput').click();">
+            <input id="fileInput" name="input_file" type="file" style="display: none" />
+            <i class="fa fa-upload"></i> Import Image
+          </a>
+        </li>
+        <li class="">
+          <a href="#" id="none-click">
+            <i class="fa fa-mouse-pointer"></i>
+            Pointer
+          </a>
+        </li>
+        <li>
+          <a href="#" id="translateFeature">
+            <i class="fa fa-arrows" aria-hidden="true"></i>
+            Move </a>
+        </li>
+        <li>
+          <a href="#" id="calibration-click">
+            <i class="fa fa-map-marker" aria-hidden="true"></i>
+            Select Calibration </a>
+        </li>
+        <li>
+          <a href="#rotation" data-toggle="collapse" aria-expanded="false">
+            <i class="fa fa-undo"></i> Map Rotate</a>
+          <ul class="collapse list-unstyled" id="rotation">
+            <li>
+              <a href="#" id="rotate-left">
+                <i class="fa fa-undo"></i>
+                Rotate Left
+              </a>
+            </li>
+            <li>
+              <a href="#" id="rotate-right">
+                <i class="fa fa-repeat" aria-hidden="true"></i>
+                Rotate Right
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a href="#LockUnlock" data-toggle="collapse" aria-expanded="false">
+            <i class="fa fa-lock"></i> Image Lock</a>
+          <ul class="collapse list-unstyled" id="LockUnlock">
+            <li>
+              <a id="lock">
+                <i class="fa fa-lock"></i>
+                lock screen
+              </a>
+            </li>
+            <li>
+              <a id="unlock">
+                <i class="fa fa-unlock"></i>
+                unlock screen
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a href="#drawPolygons" data-toggle="collapse" aria-expanded="false">
+            | Line
+          </a>
+          <ul class="collapse list-unstyled" id="drawPolygons">
+            <li>
+              <a href="#" id="line-click"> | Line </a>
+            </li>
+            <li>
+              <a href="#" id="dotted-click"> | Hash Line </a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a href="#" id="rectangle-click">
+            <i class="fa fa-square-o" aria-hidden="true"></i>
+            Rectangle
+          </a>
+        </li>
+        <li>
+          <a href="#" id="star-click">
+            <i class="fa fa-star" aria-hidden="true"></i>
+            Star
+          </a>
+        </li>
+        <li>
+          <a href="#" id="circle-click">
+            <i class="fa fa-circle"></i>
+            Circle
+          </a>
+        </li>
+        <li>
+          <a href="#" id="polygon-click">
+            <i class="fa fa-square-o" aria-hidden="true"></i>
+            Polygon
+          </a>
+        </li>
+        <li>
+          <a href="#" id="scaling">
+            <i class="fa fa-search-plus" aria-hidden="true"></i>
+            Scaling </a>
+        </li>
+        <p class="copyright">Â© 2021 PermAlert</p>
+      </ul>
+    </nav>
+    <!-- End of Sidebar -->
+    <!-- Modal Holder -->
+    <div class="modal fade" id="scaleModel" role="dialog" hidden>
+      <div class="modal-dialog">
+        <!-- Modal Content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+          </div>
+          <div class="modal-body">
+            <div class="row">
+              <div class="col-sm-6">
+                <input class='form-control input' class="form-control" type="number" placeholder="DISTANCE" value=""
+                  id="distance" />
+              </div>
+              <div class="col-sm-6">
+                <select class="form-control" name="distUnit" id="distUnit">
+                  <option value="0">Feet</option>
+                  <option value="1">Meter</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer" style="text-align: center;">
+            <button type="button" class="btn btn-default" data-dismiss="modal" id="displayScaling">OK</button>
+            <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+          </div>
+        </div>
+        <!-- End of Modal Content -->
+      </div>
+    </div>
+    <!-- End of Modal -->
+    <!-- Page Content Holder -->
+    <div id="content">
+      <nav class="navbar" id="side-nav-button" hidden>
+        <div class="navbar-wrapper">
+          <div class="navbar-header">
+            <button type="button" id="sidebarCollapse" class="btn btn-info navbar-btn">
+              <i class="glyphicon glyphicon-align-left"></i>
+            </button>
+            <div style="flex-grow: 1;"></div>
+          </div>
+          <div class="app-controller" id="controller">
+            <div class="app-controller-assigner">
+              <div class="app-controller-items">
+                <div class="app-controller-item-layout">
+                <select id="zone_list" class="form-control app-optional" aria-placeholder="Select Zone">
+                    <option value="0">Select Zone</option>
+                     
+               
+
+  <option value="Zone-92">Cable1</option>
+  
+
+ 
+               
+
+  <option value="Zone-93">Cable2</option>
+  
+
+ 
+               
+
+  <option value="Zone-94">Cable4</option>
+  
+
+
+</select>
+                </div>
+                <button class="btn btn-primary" id="btn_add_zone">Assign Zone</button>
+              </div>
+              <div class="app-controller-items">
+                <div class="app-controller-item-layout">
+                 <select id="cable_list" class="form-control app-optional">
+                    <option value="0#0">Select Cable</option>
+                      
+               
+
+  <option value="Cable-1/0-96">at30k-Cable 1-Section 1-Cable1</option>
+  
+
+ 
+               
+
+  <option value="Cable-2/97-3444">at30k-Cable 1-Section 2-Cable1</option>
+  
+
+ 
+               
+
+  <option value="Cable-3/0-124">at30k-Cable 2-Section 1-Cable2</option>
+  
+
+ 
+               
+
+  <option value="Cable-4/125-165">at30k-Cable 2-Section 2-Cable2</option>
+  
+
+ 
+               
+
+  <option value="Cable-5/166-895">at30k-Cable 2-Section 3-Cable2</option>
+  
+
+ 
+               
+
+  <option value="Cable-7/0-1638">at30k-Cable 4-Section 1-Cable4</option>
+  
+
+ 
+               
+
+  <option value="Cable-8/1639-1679">at30k-Cable 4-Section 2-Cable4</option>
+  
+
+
+</select>
+                </div>
+                <button class="btn btn-primary" id="btn_add_cable">Assign Cable</button>
+              </div>
+            </div>
+            <div class="app-controller-button-group">
+              <div class="app-controller-save">
+                <button id="btnSave" class="btn btn-primary">Save</button>
+                <button class="btn btn-default">Cancel</button>
+              </div>
+              <button class="btn btn-danger" id="btnDelete">Delete</button>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <div class="map-container">
+        <div id="map" class="map"></div>
+      </div>
+    </div>
+    <!-- End of Page Content -->
+    <!-- Tooltip Popup for Cable -->
+    <div id="tooltip" class="ol-tooltip">
+      <div id="tooltip-content"></div>
+    </div>
+    <!-- End of Tooltip Popup for Cable -->
+    <!-- Alert -->
+    <div id="alert" class="ol-alert">
+    </div>
+    <!-- End of Alert -->
+    <!-- Popup for Cable Calibration -->
+    <div id="popup" class="ol-popup">
+      <a href="#" id="popup-closer" class="ol-popup-closer"></a>
+      <div id="popup-content">
+        <div class="ol-popup-input">
+          <span>Please input calibration value</span>
+          <input class="form-control input" type="number" name="calibration" id="calibrationInfo">
+        </div>
+        <div class="ol-popup-buttons">
+          <button class="btn btn-primary" onclick="onCalibrationSave()">Save</button>
+          <button class="btn btn-danger" onclick="onCalibrationDelete()">Delete</button>
+        </div>
+      </div>
+    </div>
+    <!-- End of Popup for Cable Calibration -->
+  </div>
+
+<!-- Polyfill JS Library -->
+    <script src="assets/js/polyfill.min.js"></script>
+    <!-- Turf JS Library -->
+    <script src="assets/js/turf.min.js"></script>
+    <!-- Openlayers & Openlayers-ext Library -->
+    <script src="assets/js/ol.blink.js"></script>
+    <script src="assets/js/ol-ext.js"></script>
+    <!-- jQuery CDN -->
+    <!--<script src="http://code.jquery.com/jquery-3.3.1.slim.min.js"></script>-->
+    <script src="assets/js/jquery-3.3.1.js"></script>
+    <!-- Bootstrap Js CDN -->
+    <script src="assets/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+    <!-- jQuery Custom Scroller CDN -->
+    <script src="assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
+    <!-- Main JS -->
+    <script src="assets/js/jquery.keyframes.min.js"></script>
+    <script src="assets/js/main-blink.js"></script>
+
+  <script type="text/javascript">
+    $(document).ready(function () {
+      $("#sidebar").mCustomScrollbar({
+        theme: "minimal",
+      });
+
+      $("#sidebarCollapse").on("click", function () {
+        $("#sidebar, #content").toggleClass("active");
+        $(".collapse.in").toggleClass("in");
+        $("a[aria-expanded=true]").attr("aria-expanded", "false");
+      });
+    });
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+        <title>GLS Map Editor</title>
+
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
+        <!-- Openlayers Library Style -->
+        <link rel="stylesheet" href="assets/css/ol.css" />
+        <!-- Openlayers-ext Library Styles -->
+        <link rel="stylesheet" href="assets/css/ol-ext.min.css" />
+        <!-- Bootstrap CSS CDN -->
+        <link
+            rel="stylesheet"
+            href="assets/bootstrap-3.3.7-dist/css/bootstrap.min.css"
+        />
+        <!-- Font-awesome Library Styles -->
+        <link
+            rel="stylesheet"
+            href="assets/css/font-awesome/css/font-awesome.css"
+        />
+        <!-- jQuery Custom Scrollbar Styles -->
+        <link
+            rel="stylesheet"
+            href="assets/css/jquery.mCustomScrollbar.min.css"
+        />
+        <!-- Main CSS -->
+        <link rel="stylesheet" href="assets/css/main.css" />
+    </head>
+
+    <body>
+        <div class="app-wrapper">
+            <input id="txtfnam" name="txtfnam" type="hidden" value="[2]" />
+            <input id="txtblink" name="txtblink" type="hidden" />
+            <textarea id="txtgeojson" name="txtgeojson" hidden>
+              {"type":"FeatureCollection","features":[{"type":"Feature","properties":{"id":"Cable-5","text":"PAL-ATm-1-Cable 1-Section 1-SUBZONE_1","calibration":[{"offset":0,"coordinates":[88.65281964470117,300.2034278625713]},{"offset":1091,"coordinates":[592.4050401150965,403.63922436587063]}]},"geometry":{"type":"LineString","coordinates":[[88.65281964470117,300.2034278625713],[230.87703983673777,300.2034278625713],[254.74683902980684,336.00812665217495],[350.2260358020832,335.51083916898597],[370.11753512964077,369.3263880258338],[478.0289189816406,367.3372380930781],[497.9204183091981,404.63379933224854],[592.4050401150965,403.63922436587063]]}},{"type":"Feature","properties":{"id":"Cable-2","text":"PAL-ATm-1-Cable 2-Section 1-SUBZONE_1","calibration":[{"offset":0,"coordinates":[116.50091870328149,-10.103961647326798]},{"offset":453,"coordinates":[272.15190094141946,266.3878790057234]}]},"geometry":{"type":"LineString","coordinates":[[116.50091870328149,-10.103961647326798],[117.49549366965934,31.668186940544103],[151.80833000969616,48.0786738857791],[152.3056174928851,87.86167254089423],[191.09404118162234,105.26673445250708],[191.09404118162234,148.03345800675584],[232.86618976949325,166.4330948847466],[232.86618976949325,208.70253095580645],[271.65461345823053,225.61030538423037],[272.15190094141946,266.3878790057234]]}}],"image":"map-image.png","File Name":"[2]","All Cable Id":"Cable-5,Cable-2","All Zone Id":""}
+    </textarea
+            >
+            <!-- Sidebar Holder -->
+            <nav id="sidebar" class="app-sidebar">
+                <div class="app-sidebar-header">
+                    <a href="pendingmap.html">
+                        <img
+                            src="./assets/images/logo/perm-alert-logo.png"
+                            alt="logo image"
+                            width="100%"
+                        />
+                    </a>
+                    <h3 class="logo-text">GLS Editor</h3>
+                </div>
+                <ul class="list-unstyled app-sidebar-components">
+                    <li>
+                        <a
+                            href="fileManager.jsp"
+                            onclick="window.open('fileManager.jsp',
+        'newwindow', 'width=700,height=500'); return false;"
+                            >Import Image</a
+                        >
+                    </li>
+                    <li class="">
+                        <a href="#" id="none-click">
+                            <i class="fa fa-mouse-pointer"></i>
+                            Pointer
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" id="translateFeature">
+                            <i class="fa fa-arrows" aria-hidden="true"></i>
+                            Move
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" id="calibration-click">
+                            <i class="fa fa-map-marker" aria-hidden="true"></i>
+                            Select Calibration
+                        </a>
+                    </li>
+                    <li>
+                        <a
+                            href="#rotation"
+                            data-toggle="collapse"
+                            aria-expanded="false"
+                        >
+                            <i class="fa fa-undo"></i> Map Rotate</a
+                        >
+                        <ul class="collapse list-unstyled" id="rotation">
+                            <li>
+                                <a href="#" id="rotate-left">
+                                    <i class="fa fa-undo"></i>
+                                    Rotate Left
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" id="rotate-right">
+                                    <i
+                                        class="fa fa-repeat"
+                                        aria-hidden="true"
+                                    ></i>
+                                    Rotate Right
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a
+                            href="#LockUnlock"
+                            data-toggle="collapse"
+                            aria-expanded="false"
+                        >
+                            <i class="fa fa-lock"></i> Image Lock</a
+                        >
+                        <ul class="collapse list-unstyled" id="LockUnlock">
+                            <li>
+                                <a id="lock">
+                                    <i class="fa fa-lock"></i>
+                                    lock screen
+                                </a>
+                            </li>
+                            <li>
+                                <a id="unlock">
+                                    <i class="fa fa-unlock"></i>
+                                    unlock screen
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a
+                            href="#drawPolygons"
+                            data-toggle="collapse"
+                            aria-expanded="false"
+                        >
+                            | Line
+                        </a>
+                        <ul class="collapse list-unstyled" id="drawPolygons">
+                            <li>
+                                <a href="#" id="line-click"> | Line </a>
+                            </li>
+                            <li>
+                                <a href="#" id="dotted-click"> | Hash Line </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#" id="rectangle-click">
+                            <i class="fa fa-square-o" aria-hidden="true"></i>
+                            Rectangle
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" id="star-click">
+                            <i class="fa fa-star" aria-hidden="true"></i>
+                            Star
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" id="circle-click">
+                            <i class="fa fa-circle"></i>
+                            Circle
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" id="polygon-click">
+                            <i class="fa fa-square-o" aria-hidden="true"></i>
+                            Polygon
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" id="scaling">
+                            <i class="fa fa-search-plus" aria-hidden="true"></i>
+                            Scaling
+                        </a>
+                    </li>
+                    <p class="copyright">Â© 2022 PermAlert</p>
+                </ul>
+            </nav>
+            <!-- End of Sidebar -->
+            <!-- Modal Holder -->
+            <div class="modal fade" id="scaleModel" role="dialog">
+                <div class="modal-dialog">
+                    <!-- Modal Content-->
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button
+                                type="button"
+                                class="close"
+                                data-dismiss="modal"
+                            >
+                                &times;
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <input
+                                        class="form-control input"
+                                        class="form-control"
+                                        type="number"
+                                        placeholder="DISTANCE"
+                                        value=""
+                                        id="distance"
+                                    />
+                                </div>
+                                <div class="col-sm-6">
+                                    <select
+                                        class="form-control"
+                                        name="distUnit"
+                                        id="distUnit"
+                                    >
+                                        <option value="0">Feet</option>
+                                        <option value="1">Meter</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer" style="text-align: center">
+                            <button
+                                type="button"
+                                class="btn btn-default"
+                                data-dismiss="modal"
+                                id="displayScaling"
+                            >
+                                OK
+                            </button>
+                            <button
+                                type="button"
+                                class="btn btn-default"
+                                data-dismiss="modal"
+                            >
+                                Cancel
+                            </button>
+                        </div>
+                    </div>
+                    <!-- End of Modal Content -->
+                </div>
+            </div>
+            <!-- End of Modal -->
+            <!-- Page Content Holder -->
+            <div id="content">
+                <nav class="navbar" id="side-nav-button">
+                    <div class="navbar-wrapper">
+                        <div class="navbar-header">
+                            <button
+                                type="button"
+                                id="sidebarCollapse"
+                                class="btn btn-info navbar-btn"
+                            >
+                                <i class="glyphicon glyphicon-align-left"></i>
+                            </button>
+                            <div style="flex-grow: 1"></div>
+                            <input
+                                type="color"
+                                name="zoneColor"
+                                id="zoneColor"
+                            />
+                            <button id="btnChangeColor" class="btn btn-primary">
+                                Change Color
+                            </button>
+                        </div>
+                        <div class="app-controller" id="controller">
+                            <div class="app-controller-assigner">
+                                <div class="app-controller-items">
+                                    <div class="app-controller-item-layout">
+                                        <input
+                                            type="hidden"
+                                            name="input_file"
+                                            id="input_file"
+                                        />
+                                        <select
+                                            id="zone_list"
+                                            class="form-control app-optional"
+                                            aria-placeholder="Select Zone"
+                                        >
+                                            <option value="0">
+                                                Select Zone
+                                            </option>
+
+                                            <option value="Zone-2">
+                                                SUBZONE_1
+                                            </option>
+                                        </select>
+                                    </div>
+                                    <button
+                                        class="btn btn-primary"
+                                        id="btn_add_zone"
+                                    >
+                                        Assign Zone
+                                    </button>
+                                </div>
+                                <div class="app-controller-items">
+                                    <div class="app-controller-item-layout">
+                                        <select
+                                            id="cable_list"
+                                            class="form-control app-optional"
+                                        >
+                                            <option value="0#0">
+                                                Select Cable
+                                            </option>
+
+                                            <option value="Cable-1/0-17">
+                                                PAL-AT75C-TS-Cable 1-Section
+                                                1-SUBZONE_1
+                                            </option>
+
+                                            <option value="Cable-2/18-978">
+                                                PAL-AT75C-TS-Cable 1-Section
+                                                2-SUBZONE_1
+                                            </option>
+
+                                            <option value="Cable-3/979-987">
+                                                PAL-AT75C-TS-Cable 1-Section
+                                                3-SUBZONE_1
+                                            </option>
+                                        </select>
+                                    </div>
+                                    <button
+                                        class="btn btn-primary"
+                                        id="btn_add_cable"
+                                    >
+                                        Assign Cable
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="app-controller-button-group">
+                                <div class="app-controller-save">
+                                    <button
+                                        id="btnSave"
+                                        class="btn btn-primary"
+                                    >
+                                        Save
+                                    </button>
+                                    <button class="btn btn-default">
+                                        Cancel
+                                    </button>
+                                </div>
+                                <button class="btn btn-danger" id="btnDelete">
+                                    Delete
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+                <div class="map-container">
+                    <div id="map" class="map"></div>
+                </div>
+            </div>
+            <!-- End of Page Content -->
+            <!-- Tooltip Popup for Cable -->
+            <div id="tooltip" class="ol-tooltip">
+                <div id="tooltip-content"></div>
+            </div>
+            <!-- End of Tooltip Popup for Cable -->
+            <!-- Alert -->
+            <div id="alert" class="ol-alert"></div>
+            <!-- End of Alert -->
+            <!-- Popup for Cable Calibration -->
+            <div id="popup" class="ol-popup">
+                <a href="#" id="popup-closer" class="ol-popup-closer"></a>
+                <div id="popup-content">
+                    <div class="ol-popup-input">
+                        <span>Please input calibration value</span>
+                        <input
+                            class="form-control input"
+                            type="number"
+                            name="calibration"
+                            id="calibrationInfo"
+                        />
+                    </div>
+                    <div class="ol-popup-buttons">
+                        <button
+                            class="btn btn-primary"
+                            onclick="onCalibrationSave()"
+                        >
+                            Save
+                        </button>
+                        <button
+                            class="btn btn-danger"
+                            onclick="onCalibrationDelete()"
+                        >
+                            Delete
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <!-- End of Popup for Cable Calibration -->
+        </div>
+
+        <!-- Polyfill JS Library -->
+        <script src="assets/js/polyfill.min.js"></script>
+        <!-- Turf JS Library -->
+        <script src="assets/js/turf.min.js"></script>
+        <!-- Openlayers & Openlayers-ext Library -->
+        <script src="assets/js/ol.js"></script>
+        <script src="assets/js/ol-ext.js"></script>
+        <!-- jQuery CDN -->
+        <script src="assets/js/jquery-1.12.0.min.js"></script>
+        <!-- Bootstrap Js CDN -->
+        <script src="assets/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+        <!-- jQuery Custom Scroller CDN -->
+        <script src="assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
+        <!-- Main JS -->
+        <script src="assets/js/main-editor.js"></script>
+
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $('#sidebar').mCustomScrollbar({
+                    theme: 'minimal',
+                });
+
+                $('#sidebarCollapse').on('click', function () {
+                    $('#sidebar, #content').toggleClass('active');
+                    $('.collapse.in').toggleClass('in');
+                    $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+                });
+            });
+        </script>
+    </body>
+</html>
