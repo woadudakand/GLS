@@ -38,21 +38,21 @@
                 id="txtblink"
                 name="txtblink"
                 type="hidden"
-                value="Zone-2/Cable-2/89$Zone-2/Cable-2/90$Zone-2/Cable-2/195"
+                value="Zone-23/Cable-376/54$Zone-23/Cable-376/164$Zone-23/Cable-376/184$Zone-23/Cable-376/51$Zone-23/Cable-376/649"
             />
             <input
                 id="zoneblink"
                 name="zoneblink"
                 type="hidden"
-                value="Zone-2"
+                value="Zone-23"
             />
             <textarea id="txtgeojson" name="txtgeojson" hidden>
-              {"type":"FeatureCollection","features":[{"type":"Feature","properties":{"id":"Cable-1","text":"\n                                                PAL-AT75C-TS-Cable 1-Section\n                                                1-SUBZONE_1\n                                            ","color":"#cfdd03"},"geometry":{"type":"LineString","coordinates":[[78.66222672163744,173.1859194937681],[552.0519985664766,207.31292326992553]]}}],"image":"map-image.png"}
+       {"type":"FeatureCollection","features":[{"type":"Feature","properties":{"id":"Cable-375", "color": "#000000", "text":"PAL-ATm-1-TC1-Section 1-SUBZONE_1","calibration":[{"offset":0,"coordinates":[-130.88307702818793,403.1981909006124]},{"offset":50,"coordinates":[907.0917432800851,454.58308299508144]}]},"geometry":{"type":"LineString","coordinates":[[-130.88307702818793,403.1981909006124],[907.0917432800851,454.58308299508144]]}},{"type":"Feature","properties":{"id":"Cable-376", "color": "#cfdd03", "text":"PAL-ATm-1-TC1-Section 2-SUBZONE_1","calibration":[{"offset":51,"coordinates":[-86.83888380435735,206.46746116750262]},{"offset":649,"coordinates":[1026.0110649844278,188.84978387797037]}]},"geometry":{"type":"LineString","coordinates":[[-86.83888380435735,206.46746116750262],[1026.0110649844278,188.84978387797037]]}}],"image":"map-image.png","File Name":"[23]","All Cable Id":"Cable-375,Cable-376","All Zone Id":""}
     </textarea
             >
             <textarea id="blinkColors" name="blinkColors" hidden>
-      Zone-2/Cable-2/89-ffff00,Zone-2/Cable-2/90-ffff00,Zone-2/Cable-2/195-ffff00,
-    </textarea
+               Zone-23/Cable-376/54-ff0000$blinkColor=Zone-23/Cable-376/51-ff0000$blinkColor=Zone-23/Cable-376/649-ff0000$blinkColor=Zone-23/Cable-376/164-ff0000$blinkColor=Zone-23/Cable-376/184-ff0000,
+    </textarea
             >
             <!-- Sidebar Holder -->
             <nav id="sidebar" class="app-sidebar" hidden>
@@ -287,7 +287,7 @@
                                                 Select Zone
                                             </option>
 
-                                            <option value="Zone-2">
+                                            <option value="Zone-23">
                                                 SUBZONE_1
                                             </option>
                                         </select>
@@ -309,29 +309,39 @@
                                                 Select Cable
                                             </option>
 
-                                            <option value="Cable-1/0-88">
-                                                PAL-ATm-1-Upstairs-Section
+                                            <option value="Cable-375/0-50">
+                                                PAL-ATm-1-TC1-Section
                                                 1-SUBZONE_1
                                             </option>
 
-                                            <option value="Cable-1P/0-88">
-                                                PAL-ATm-1-Upstairs-Probes
-                                                1-SUBZONE_1
-                                            </option>
-
-                                            <option value="Cable-2/89-195">
-                                                PAL-ATm-1-Upstairs-Section
+                                            <option value="Cable-376/51-649">
+                                                PAL-ATm-1-TC1-Section
                                                 2-SUBZONE_1
                                             </option>
 
-                                            <option value="Cable-3/196-320">
-                                                PAL-ATm-1-Upstairs-Section
+                                            <option value="Cable-377/650-679">
+                                                PAL-ATm-1-TC1-Section
                                                 3-SUBZONE_1
                                             </option>
 
-                                            <option value="Cable-3P/196-320">
-                                                PAL-ATm-1-Upstairs-Probes
-                                                2-SUBZONE_1
+                                            <option value="Cable-378/680-768">
+                                                PAL-ATm-1-TC1-Section
+                                                4-SUBZONE_1
+                                            </option>
+
+                                            <option value="Cable-379/769-912">
+                                                PAL-ATm-1-TC1-Section
+                                                5-SUBZONE_1
+                                            </option>
+
+                                            <option value="Cable-380/913-1006">
+                                                PAL-ATm-1-TC1-Section
+                                                6-SUBZONE_1
+                                            </option>
+
+                                            <option value="Cable-381/1007-1106">
+                                                PAL-ATm-1-TC1-Section
+                                                7-SUBZONE_1
                                             </option>
                                         </select>
                                     </div>

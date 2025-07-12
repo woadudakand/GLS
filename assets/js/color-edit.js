@@ -437,6 +437,7 @@ $(document).on('click', '#btn_add_cable', null, function () {
         });
     } else {
         var coordinates = selectedFeature.getGeometry().getCoordinates();
+        var color = selectedFeature.getProperties()?.color;
         coordinates = nudgeIdenticalCoordinates(coordinates);
         var calibration = [
             {
@@ -453,6 +454,7 @@ $(document).on('click', '#btn_add_cable', null, function () {
             type: 'Feature',
             properties: {
                 id: cableId,
+                color,
                 text: $('#cable_list option:selected').html(),
                 calibration,
             },
@@ -874,12 +876,15 @@ function drawCable(currentCable) {
         currentCable.getGeometry().getCoordinates();
 
     var lineStringFeatures = new ol.Collection();
+    var points = currentCable.properties?.calibration || [];
+
     lineStringFeatures.push(
         new ol.Feature({
             geometry: new ol.geom.LineString(coordinates),
             text: currentCable?.properties?.text || '',
             id: currentCable.properties.id,
             color: currentCable.properties.color,
+            calibration: points,
         })
     );
 
@@ -923,7 +928,6 @@ function drawCable(currentCable) {
 
     map.addLayer(lineStringVector);
 
-    var points = currentCable.properties.calibration;
     var pointsCoordinates = [];
     var calibrationCoordinates = [];
     points &&
@@ -1939,7 +1943,9 @@ $(document).on('click', '#btnChangeColor', null, function () {
                                 feature.properties.geometry.getCoordinates()
                                     .length
                             ) {
-                                targetCable = feature;
+                                if (featureProperties.calibration) {
+                                    targetCable = feature;
+                                }
                             }
                         }
                     }
@@ -1981,7 +1987,22 @@ $(document).on('click', '#btnChangeColor', null, function () {
             })
         );
         $('#btnDelete').trigger('click');
-        drawCable(targetCable);
+        var currentCable = {
+            type: 'Feature',
+            properties: {
+                id: targetCable.getProperties().id,
+                text: targetCable.getProperties().text,
+                color: targetCable.getProperties().color,
+                calibration: targetCable.getProperties().calibration,
+            },
+            geometry: {
+                type: 'LineString',
+                coordinates: targetCable.getGeometry().getCoordinates(),
+            },
+        };
+
+        zoneGeoJson.features.push(currentCable);
+        drawCable(currentCable);
     }
 
     $('#translateFeature').trigger('click');
@@ -2122,7 +2143,8 @@ function updateGeoJson() {
         text,
         calibration,
         type,
-        coordinates
+        coordinates,
+        color
     ) => {
         return {
             type: level,
@@ -2130,6 +2152,7 @@ function updateGeoJson() {
                 id,
                 text,
                 calibration,
+                color,
             },
             geometry: {
                 type,
@@ -2210,7 +2233,8 @@ function updateGeoJson() {
                                       featureText,
                                       tempCalibration[featureId],
                                       featureType,
-                                      featureCoordinates
+                                      featureCoordinates,
+                                      featureColor
                                   )
                                 : generateFeatureJson(
                                       featureLevel,
@@ -2538,7 +2562,7 @@ async function init(
             });
         })();
 
-        if (hit && calibrations.length) {
+        if (hit && calibrations?.length) {
             let tooltipInfoArray = [];
             calibrations.map((element, elementIndex) => {
                 var isSame = true;
@@ -2575,25 +2599,25 @@ setTimeout(() => {
     alertControl(true);
 }, 1000);
 
-$(document).on('click', '#btnChangeColor', null, function () {
-    var selectedZone = {
-        type: 'Feature',
-        properties: {
-            id: selectedFeature.getProperties().id,
-            text: selectedFeature.getProperties().text,
-        },
-        geometry: {
-            type: 'Polygon',
-            coordinates: selectedFeature.getGeometry().getCoordinates(),
-        },
-    };
+// $(document).on('click', '#btnChangeColor', null, function () {
+//     var selectedZone = {
+//         type: 'Feature',
+//         properties: {
+//             id: selectedFeature?.getProperties()?.id,
+//             text: selectedFeature?.getProperties()?.text,
+//         },
+//         geometry: {
+//             type: 'Polygon',
+//             coordinates: selectedFeature.getGeometry().getCoordinates(),
+//         },
+//     };
 
-    zoneGeoJson.features.push(selectedZone);
+//     zoneGeoJson.features.push(selectedZone);
 
-    // removeDrawingFromLayer(selectedFeature, getDrawingLayer().getSource());
-    drawZone(selectedZone);
-    $('#translateFeature').trigger('click');
-});
+//     // removeDrawingFromLayer(selectedFeature, getDrawingLayer().getSource());
+//     drawZone(selectedZone);
+//     $('#translateFeature').trigger('click');
+// });
 
 document.addEventListener(
     'mouseup',

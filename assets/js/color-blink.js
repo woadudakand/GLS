@@ -271,10 +271,7 @@ function alertControl(start) {
 
             if (cableInfo.length) {
                 for (let i = 0; i < cableInfo.length; i++) {
-                    const element = cableInfo[i];
-                    if (alert_pos > element.offset) {
-                        selected_index = i;
-                    }
+                    selected_index = 0;
                 }
             }
             if (selected_index > -1 && selected_index < cableInfo.length) {
@@ -988,13 +985,15 @@ function drawZone(zone) {
 function drawCable(currentCable) {
     initSelectedZone();
     var coordinates = currentCable.geometry.coordinates;
-
+    var points = currentCable.properties.calibration;
     var lineStringFeatures = new ol.Collection();
     lineStringFeatures.push(
         new ol.Feature({
             geometry: new ol.geom.LineString(coordinates),
             text: currentCable.properties.text,
             id: currentCable.properties.id,
+            color: currentCable.properties.color,
+            calibration: points,
         })
     );
 
@@ -1038,7 +1037,6 @@ function drawCable(currentCable) {
 
     map.addLayer(lineStringVector);
 
-    var points = currentCable.properties.calibration;
     var pointsCoordinates = [];
     var calibrationCoordinates = [];
     points &&
@@ -2304,8 +2302,7 @@ function modifyCalibrations(zoneGeoJson) {
             let closest;
             for (
                 let j = 0;
-                j < zoneGeoJson?.features[i]?.properties?.calibration?.length ||
-                0;
+                j < zoneGeoJson.features[i].properties.calibration.length;
                 j++
             ) {
                 closest = lines.getClosestPoint([
